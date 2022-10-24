@@ -18,4 +18,9 @@ export class UserService {
     this.messageService.add('UserService: fetched Users');
     return users;
   }
+  getUser(id: number): Observable<User> {
+  const user = USERS.find(u => u.id === id)!;
+  this.messageService.add(`UserService: fetched user id=${id}`);
+  return of(user);
+}
 }

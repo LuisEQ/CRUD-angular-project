@@ -2,12 +2,11 @@
 
 <ul class="users">
     <li *ngFor="let user of users">
-        <button [class.selected]="user === selectedUser"
- type="button" (click)="onSelect(user)">
+        <a routerLink="/detail/{{user.id}}">
             <span class="badge">{{user.id}}</span>
             <span class="name">{{user.name}}</span>
             <span class="name">{{user.password}}</span>
             <span class="name">{{user.pin}}</span>
-        </button>
+        </a>
     </li>
 </ul>
