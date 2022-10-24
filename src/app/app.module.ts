@@ -8,6 +8,7 @@ import { UsersComponent } from './users/users.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { MessagesComponent } from './messages/messages.component';
     UsersComponent,
     UserDetailComponent,
     MessagesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
