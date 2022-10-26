@@ -12,6 +12,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { UserAddComponent } from './user-add/user-add.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     UserDetailComponent,
     MessagesComponent,
     DashboardComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,

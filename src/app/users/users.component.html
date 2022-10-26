@@ -7,21 +7,7 @@
                         <h4><b>Usuarios</b></h4>
                     </div>
                     <div class="col-sm-6">
-                        <div>
-                            <label for="new-user">Nombre de usuario: </label>
-                            <input id="new-user" #userName />
-                            <label for="new-user">Contraseña: </label>
-                            <input id="new-user" #userPassword />
-                            <label for="new-user">Correo electrónico: </label>
-                            <input id="new-user" #userEmail />
-                            <label for="new-user">PIN: </label>
-                            <input id="new-user" #userPIN />
-                        
-                            <button class="btn btn-success"
-                                (click)="add(userName.value, userPassword.value, userEmail.value, userPIN.value); userName.value=''; userPassword.value=''; userEmail.value=''; userPIN.value='' "> <i class='fas fa-plus-circle'></i>
-                                Agregar usuario
-                            </button>
-                        </div>
+                        <a href="#" routerLink="/add-user" class="btn"><i class='fas fa-eye view'>Agregar usuario</i></a>
                     </div>
                 </div>
             </div>
@@ -45,8 +31,6 @@
                         <td>{{ user.pin }}</td>
                         <td>
                             <a href="#" routerLink="/detail/{{user.id}}" class="btn"><i class='fas fa-eye view'>Editar</i></a>
-                            <a href="#" [routerLink]="['/EditUsers/', user.id]" class="btn"><i
-                                    class="fa fa-edit edit"></i></a>
                             <button type="button" (click)="delete(user)" class="btn"><i
                                     class='fas fa-trash-alt delete'>x</i></button>
                         </td>
