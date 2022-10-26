@@ -1,5 +1,21 @@
 <h2>Usuarios</h2>
 
+<div>
+    <label for="new-user">Nombre de usuario: </label>
+    <input id="new-user" #userName />
+    <label for="new-user">Contraseña: </label>
+    <input id="new-user" #userPassword />
+    <label for="new-user">Correo electrónico: </label>
+    <input id="new-user" #userEmail />
+    <label for="new-user">PIN: </label>
+    <input id="new-user" #userPIN />
+
+    <!-- (click) passes input value to add() and then clears the input -->
+    <button type="button" class="add-button" (click)="add(userName.value, userPassword.value, userEmail.value, userPIN.value); userName.value=''; userPassword.value=''; userEmail.value=''; userPIN.value='' ">
+        Agregar usuario
+    </button>
+</div>
+
 <ul class="users">
     <li *ngFor="let user of users">
         <a routerLink="/detail/{{user.id}}">
@@ -8,5 +24,6 @@
             <span class="name">{{user.password}}</span>
             <span class="name">{{user.pin}}</span>
         </a>
+        <button type="button" class="delete" title="delete user" (click)="delete(user)">x</button>
     </li>
 </ul>
