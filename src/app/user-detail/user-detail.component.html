@@ -5,6 +5,12 @@
     <div>
         <label for="user-name">User name: </label>
         <input id="user-name" [(ngModel)]="user.name" placeholder="name">
+        <label for="user-password">Contraseña: </label>
+        <input id="user-password" [(ngModel)]="user.password" placeholder="password">
+        <label for="user-email">Correo electrónico: </label>
+        <input id="user-email" [(ngModel)]="user.email" placeholder="email">
+        <label for="user-pin">PIN: </label>
+        <input id="user-pin" [(ngModel)]="user.pin" placeholder="pin">
     </div>
     <button type="button" (click)="goBack()">Atrás</button>
 </div>
