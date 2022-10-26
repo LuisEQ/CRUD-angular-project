@@ -10,7 +10,6 @@
     <label for="new-user">PIN: </label>
     <input id="new-user" #userPIN />
 
-    <!-- (click) passes input value to add() and then clears the input -->
     <button type="button" class="add-button" (click)="add(userName.value, userPassword.value, userEmail.value, userPIN.value); userName.value=''; userPassword.value=''; userEmail.value=''; userPIN.value='' ">
         Agregar usuario
     </button>
@@ -21,6 +20,7 @@
         <a routerLink="/detail/{{user.id}}">
             <span class="badge">{{user.id}}</span>
             <span class="name">{{user.name}}</span>
+            <span class="name">{{user.email}}</span>
             <span class="name">{{user.password}}</span>
             <span class="name">{{user.pin}}</span>
         </a>
