@@ -29,11 +29,11 @@ export class ProductsComponent implements OnInit {
 
 
 
-  add(name: string, baseprice :number, publicprice : number, stock: number): void {
+  add(name: string, baseprice :string, publicprice : string, stock: string): void {
     name = name.trim();
-    baseprice = baseprice;
-    publicprice = publicprice;
-    stock = stock;
+    baseprice = baseprice.trim();
+    publicprice = publicprice.trim();
+    stock = stock.trim();
     if (!name || !baseprice || !publicprice || !stock ) { return; }
     this.productService.addProduct({ name, baseprice, publicprice, stock } as Product)
       .subscribe(product => {

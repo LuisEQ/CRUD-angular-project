@@ -1,0 +1,67 @@
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Agregar producto</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" (click)="goBack()" class="btn btn-primary back"><i
+                                class='fas fa-arrow-circle-left'></i>Atrás</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="table-content">
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Name" class="p-t-b-10">Nombre<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="new-product" #productName maxlength="255"
+                                ng-model="namefield" ng-minlength="2" placeholder="name" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Precio Base<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="new-product" #productBaseprice ng-model="passwordfield" ng-minlength="1"
+                                placeholder="Precio" required></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Precio Venta<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="new-product" #productPublicprice ng-minlength="1"
+                                placeholder="Precio" required maxlength="255" ng-model="emailfield" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Stock<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <textarea class="form-control" id="new-product" #productStock ng-model="passwordfield"
+                                ng-minlength="1" placeholder="Stock" required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="table-footer">
+                    <button name="add-button" class="btn btn-success"
+                        (click)="add(productName.value, productBaseprice.value, productPublicprice.value, productStock.value); productName.value=''; productBaseprice.value=''; productPublicprice.value=''; productStock.value='' ">
+                        <i class='fas fa-plus-circle'></i>
+                        Agregar producto
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

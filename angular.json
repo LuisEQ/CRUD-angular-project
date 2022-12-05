@@ -6,7 +6,7 @@
     "project-crud-angular": {
       "projectType": "application",
       "schematics": {},
-      "root": "",
+      "root": "./src",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -98,8 +98,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "dc13b252-98e7-46b3-a8d7-c1bf36ed0ed8"
   }
 }

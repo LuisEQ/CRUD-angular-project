@@ -5,6 +5,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { UserAddComponent } from './user-add/user-add.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductAddComponent } from './product-add/product-add.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'add-user', component: UserAddComponent },
   { path: 'detail/:id', component: UserDetailComponent },
   { path: 'products', component: ProductsComponent },
+  { path: 'add-product', component: ProductAddComponent },
+  { path: 'detailproduct/:id', component: ProductDetailComponent },
   { path: '**', redirectTo: '/dashboard' },
 ];
 
