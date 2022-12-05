@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { User } from '../user';
 import { USERS } from '../mock/mock-users';
@@ -12,11 +11,9 @@ import { MessageService } from './message.service';
 })
 export class UserService {
 
-  private usersUrl = 'api/users'; 
-
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
+  //private usersUrl = 'api/users'; 
+  //private usersUrl = 'http://localhost:4200/users';
+  private usersUrl = 'http://localhost';
   
   constructor(
     private http: HttpClient,
@@ -26,54 +23,32 @@ export class UserService {
   private log(message: string) {
     this.messageService.add(`UserService: ${message}`);
   }
-
-
-  getUsers(): Observable <User[]> {
-    return this.http.get<User[]>(this.usersUrl)
-    .pipe(
-      tap(_ => this.log('fetched users')),
-      catchError(this.handleError<User[]>('getUsers', []))
-    );
+    
+  getUsers(){
+    return this.http.get<User[]>(`${this.usersUrl}/getall.php`);
   }
-  getUser(id: number): Observable<User> {
-    const url = `${this.usersUrl}/${id}`;
+  getUser(id: number){
+    const url = `${this.usersUrl}/get.php?idUser=${id}`;
     return this.http.get<User>(url).pipe(
-      tap(_ => this.log(`fetched user id=${id}`)),
-      catchError(this.handleError<User>(`getUser id=${id}`))
+      tap(_ => this.log(`fetched user id=${id}`))
     );
   }
-  updateUser(user: User): Observable<any> {
-    return this.http.put(this.usersUrl, user, this.httpOptions).pipe(
-      tap(_ => this.log(`updated hero id=${user.id}`)),
-      catchError(this.handleError<any>('updateUser'))
+  updateUser(user: User){
+    return this.http.put(`${this.usersUrl}/update.php`, user).pipe(
+      tap(_ => this.log(`updated id=${user.id}`))
     );
   }
 
-  addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.usersUrl, user, this.httpOptions).pipe(
-      tap((newUser: User) => this.log(`added User w/ id=${newUser.id}`)),
-      catchError(this.handleError<User>('addUser'))
+  addUser(user: User){
+    return this.http.post<User>(`${this.usersUrl}/post.php`, user).pipe(
+      tap((newUser: User) => this.log(`added User w/ id=${newUser.id}`))
     );
   }
-  deleteUser(id: number): Observable<User> {
-    const url = `${this.usersUrl}/${id}`;
+  deleteUser(id: number){
+    const url = `${this.usersUrl}/delete.php?idUser=${id}`;
 
-    return this.http.delete<User>(url, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted user id=${id}`)),
-      catchError(this.handleError<User>('deleteUser'))
+    return this.http.delete<User>(url).pipe(
+      tap(_ => this.log(`deleted user id=${id}`))
     );
   }
-  private handleError<T>(operation = 'operation', result?: T) {
-  return (error: any): Observable<T> => {
-
-    
-    console.error(error);
-
-    
-    this.log(`${operation} failed: ${error.message}`);
-
-    
-    return of(result as T);
-  };
-}
 }

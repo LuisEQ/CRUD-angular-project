@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'add-user', component: UserAddComponent },
   { path: 'detail/:id', component: UserDetailComponent },
+  { path: '**', redirectTo: '/dashboard' },
 ];
 
 @NgModule({

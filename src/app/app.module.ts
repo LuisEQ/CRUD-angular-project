@@ -29,9 +29,6 @@ import { UserAddComponent } from './user-add/user-add.component';
     FormsModule,
     NgbModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
   ],
   providers: [],
   bootstrap: [

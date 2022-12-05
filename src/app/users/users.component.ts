@@ -3,6 +3,7 @@ import { User } from '../user';
 import { UserService } from '../services/user.service';
 
 import { MessageService } from '../services/message.service';
+import { USERS } from '../mock/mock-users';
 
 @Component({
   selector: 'app-users',
@@ -11,7 +12,8 @@ import { MessageService } from '../services/message.service';
 })
 export class UsersComponent implements OnInit {
 
-  users : User[] = [];
+  users: User[] = [
+  ];
 
   
   constructor(private userService:UserService, private messageService: MessageService) { }
@@ -21,8 +23,14 @@ export class UsersComponent implements OnInit {
   }
   getUsers(): void {
     this.userService.getUsers()
-        .subscribe(users => this.users = users);
+        .subscribe((users: User[]) => {
+          this.users = users;
+          console.log(this.users);
+        });
   }
+
+
+
   add(name: string, password :string, email : string, pin: string): void {
     name = name.trim();
     password = password.trim();
