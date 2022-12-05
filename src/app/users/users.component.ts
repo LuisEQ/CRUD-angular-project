@@ -3,7 +3,6 @@ import { User } from '../user';
 import { UserService } from '../services/user.service';
 
 import { MessageService } from '../services/message.service';
-import { USERS } from '../mock/mock-users';
 
 @Component({
   selector: 'app-users',

@@ -25,7 +25,7 @@ export class UserService {
   getUsers(): Observable <User[]>{
     return this.http.get<User[]>(`${this.usersUrl}/getall.php`)
     .pipe(
-      tap(_ => this.log('fetched users')),
+      tap(_ => this.log('Actualizado usuarios')),
       catchError(this.handleError<User[]>('getUsers', []))
     );
   }
