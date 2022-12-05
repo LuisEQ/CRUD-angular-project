@@ -1,1 +1,82 @@
-<p>product-detail works!</p>
+<div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h4><b>Update Users</b></h4>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="button" (click)="goBack()" class="btn btn-primary back"><i
+                                class='fas fa-arrow-circle-left'></i>Atrás</button>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="product">
+                <div class="table-content">
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="Name" class="p-t-b-10">Nombre<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="product-name" required maxlength="255"
+                                [(ngModel)]="product.name" name="Name" #Name="ngModel" placeholder="name">
+                            <div *ngIf="Name.errors" class="alert alert-danger validationError">
+                                <div [hidden]="!Name.errors?.['required']">
+                                    Se necesita nombre
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label for="BasePrice" class="p-t-b-10">Precio base<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="product-basePrice" [(ngModel)]="product.baseprice"
+                                placeholder="Precio base" required  name="BasePrice" #BasePrice="ngModel">
+                            <div *ngIf="BasePrice.errors" class="alert alert-danger validationError">
+                                <div [hidden]="!BasePrice.errors?.['required']">
+                                    Se necesita un precio base
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Precio Publico<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="product-publicPrice" [(ngModel)]="product.publicprice"
+                                placeholder="Precio Publico" required name="PublicPrice" #PublicPrice="ngModel">
+                                <div *ngIf="PublicPrice.errors" class="alert alert-danger validationError">
+                                    <div [hidden]="!PublicPrice.errors?.['required']">
+                                        Se necesita un precio base
+                                    </div>
+                                </div>
+                           
+                        </div>
+                    </div>
+                    <div class="form-group p-10 row">
+                        <div class="col-sm-3">
+                            <label class="p-t-b-10">Stock<span class="requiredStar">*</span></label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="number" class="form-control" id="product-Stock" [(ngModel)]="product.stock"
+                                placeholder="Stock" required name="Stock" #Stock="ngModel">
+                            <div *ngIf="Stock.errors" class="alert alert-danger validationError">
+                                <div [hidden]="!Stock.errors?.['required']">
+                                    Se necesita un numero de Stock
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="table-footer">
+                    <button type="button" class="btn btn-success" (click)="save()">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
