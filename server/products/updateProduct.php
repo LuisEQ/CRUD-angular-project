@@ -12,4 +12,4 @@ if (!$jsonProduct) {
 $bd = include_once "bd.php";
 $sentencia = $bd->prepare("UPDATE products SET name = ?, baseprice = ?, publicprice = ?, stock = ? WHERE id = ?");
 $resultado = $sentencia->execute([$jsonProduct->name, $jsonProduct->baseprice, $jsonProduct->publicprice, $jsonProduct->stock, $jsonProduct->id]);
-echo json_encode($resultado);
+echo json_encode($resultado);   
